@@ -105,7 +105,7 @@ console.log(ellie1 === ellie3); // true
 
 ![Object Equality](./img/object-equality.png)
 
-### Quize
+### Quiz
 
 ```js
 console.log(0 == false); // true
@@ -218,7 +218,7 @@ for (let i = 0; i < 10; i++) {
 
 > Cpu에 좋지 않다. 되도록이면 이렇게 작성하는 것을 피하자
 
-### Quize
+### Quiz
 
 Q1. iterate from 0 to 10 and print only even numbers (use continue)
 
