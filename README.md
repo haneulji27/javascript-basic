@@ -10,4 +10,4 @@
 
 4. [Funnction](https://github.com/haneulji27/javascript-basic/blob/main/03-Function.md)
 
-5. [Class]()
+5. [Class](https://github.com/haneulji27/javascript-basic/blob/main/04-Class.md)
