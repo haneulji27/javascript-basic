@@ -1,18 +1,40 @@
-function calculator(command, a, b) {
-  switch (command) {
-    case 'add':
-      return a + b;
-    case 'minus':
-      return a - b;
-    case 'divide':
-      return a / b;
-    case 'multiply':
-      return a * b;
-    case 'remainder':
-      return a % b;
-    default:
-      throw Error('unknown command');
+class Shape {
+  constructor(width, height, color) {
+    this.width = width;
+    this.height = height;
+    this.color = color;
+  }
+
+  draw() {
+    console.log(`color is ${this.color}`);
+  }
+
+  getArea() {
+    return this.width * this.height;
   }
 }
 
-console.log(calculator('add', 5, 5));
+class Rectangle extends Shape {}
+class Triangle extends Shape {
+  // overriding
+  draw() {
+    super.draw(); // super!
+    console.log('😎');
+  }
+  getArea() {
+    return (this.width * this.height) / 2;
+  }
+}
+
+const rectangle = new Rectangle(20, 20, 'black');
+rectangle.draw();
+
+const triangle = new Triangle(20, 20, 'Peru');
+triangle.draw();
+console.log(triangle.getArea());
+
+console.log(rectangle instanceof Rectangle); // true
+console.log(triangle instanceof Rectangle); // false
+console.log(triangle instanceof Triangle); // true
+console.log(triangle instanceof Shape); // true
+console.log(Triangle instanceof Object); // true
