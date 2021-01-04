@@ -12,4 +12,4 @@
 
 5. [Class](https://github.com/haneulji27/javascript-basic/blob/main/04-Class.md)
 
-6. [Object]()
+6. [Object](https://github.com/haneulji27/javascript-basic/blob/main/05-Object.md)
