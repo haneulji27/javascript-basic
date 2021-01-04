@@ -6,7 +6,7 @@
 
 2. [Variable](https://github.com/haneulji27/javascript-basic/blob/main/01-variable.md)
 
-3. [Operator / if / for loop](https://github.com/haneulji27/javascript-basic/blob/main/02-Operator.md)
+3. [Operator / if / for loop](https://github.com/haneulji27/javascript-basic/blob/main/02-Operator-if-for-loop.md)
 
 4. [Funnction](https://github.com/haneulji27/javascript-basic/blob/main/03-Function.md)
 
