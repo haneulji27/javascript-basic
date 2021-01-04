@@ -1,6 +1,4 @@
-const fruit1 = { color: 'red' };
-const fruit2 = { color: 'black', size: 'big' };
+const fruits = ['🍎', '🍌', '🍒', '🍊', '🍎'];
 
-const mixed = Object.assign({}, fruit1, fruit2);
-
-console.log(mixed.color); // black
+console.log(fruits.indexOf('🍎'));
+console.log(fruits.lastIndexOf('🍎'));
