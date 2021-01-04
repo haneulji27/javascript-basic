@@ -16,4 +16,4 @@
 
 7. [Array](https://github.com/haneulji27/javascript-basic/blob/main/06-Array.md)
 
-8. [Array APIs]()
+8. [Array APIs](https://github.com/haneulji27/javascript-basic/blob/main/07-Array-APIs.md)
