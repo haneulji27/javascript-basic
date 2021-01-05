@@ -1,25 +1,29 @@
 class UserStorage {
-  loginUser(id, password, onSuccess, onError) {
-    setTimeout(() => {
-      if (
-        (id === 'ellie', password === 'dream') ||
-        (id === 'haneul', password === 'coder')
-      ) {
-        onSuccess(id);
-      } else {
-        onError(new Error('not found'));
-      }
-    }, 2000);
+  loginUser(id, password) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (
+          (id === 'ellie', password === 'dream') ||
+          (id === 'haneul', password === 'coder')
+        ) {
+          resolve(id);
+        } else {
+          reject(new Error('not found'));
+        }
+      }, 2000);
+    });
   }
 
-  getRoles(id, onSuccess, onError) {
-    setTimeout(() => {
-      if (id === 'ellie') {
-        onSuccess({ name: 'ellie', role: 'admin' });
-      } else {
-        onError(new Error('no access'));
-      }
-    }, 2000);
+  getRoles(id) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (id === 'ellie') {
+          resolve({ name: 'ellie', role: 'admin' });
+        } else {
+          reject(new Error('no access'));
+        }
+      }, 2000);
+    });
   }
 }
 
@@ -27,19 +31,8 @@ const userStorage = new UserStorage();
 const id = prompt('enter your id');
 const password = prompt('enter your password');
 
-userStorage.loginUser(
-  id,
-  password,
-  (userId) => {
-    userStorage.getRoles(
-      userId,
-      (userWithRole) => {
-        alert(`${userWithRole.name}, ${userWithRole.role}`);
-      },
-      (error) => console.log(error)
-    );
-  },
-  (error) => {
-    console.log(error);
-  }
-);
+userStorage
+  .loginUser(id, password)
+  .then(userStorage.getRoles)
+  .then((user) => alert(`username: ${user.name}, role: ${user.role}`))
+  .catch(console.log);
