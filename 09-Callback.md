@@ -1,3 +1,40 @@
+# Callback
+
+- JavaScript is synchronous
+- Execute the code block in order after hoisting
+- hoisting : var, function declaration
+
+```js
+console.log(1); // 동기
+setTimeout(() => console.log(2), 1000); // 비동기
+console.log(3); // 동기
+```
+
+## Synchronous callback
+
+```js
+function printImmediately(print) {
+  print();
+}
+
+printImmediately(() => console.log('print immediately'));
+```
+
+## Asynchronous callback
+
+```js
+function printWithDelay(print, delay) {
+  setTimeout(print, delay);
+}
+
+printWithDelay(() => console.log('print with delay'), 2000);
+```
+
+---
+
+## Callback 지옥 체험
+
+```js
 class UserStorage {
   loginUser(id, password, onSuccess, onError) {
     setTimeout(() => {
@@ -43,3 +80,6 @@ userStorage.loginUser(
     console.log(error);
   }
 );
+```
+
+> 콜백 체인의 단점 : 가독성 떨어짐, 디버깅, 유지보수 힘듬
