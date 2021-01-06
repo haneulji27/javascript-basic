@@ -1,29 +1,31 @@
 class UserStorage {
-  loginUser(id, password) {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        if (
-          (id === 'ellie', password === 'dream') ||
-          (id === 'haneul', password === 'coder')
-        ) {
-          resolve(id);
-        } else {
-          reject(new Error('not found'));
-        }
-      }, 2000);
-    });
+  async loginUser(id, password) {
+    return setTimeout(() => {
+      if (
+        (id === 'ellie', password === 'dream') ||
+        (id === 'haneul', password === 'coder')
+      ) {
+        return id;
+      } else {
+        return new Error('no found');
+      }
+    }, 2000);
   }
 
-  getRoles(id) {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        if (id === 'ellie') {
-          resolve({ name: 'ellie', role: 'admin' });
-        } else {
-          reject(new Error('no access'));
-        }
-      }, 2000);
-    });
+  async getRoles(id) {
+    return setTimeout(() => {
+      if (id === 'ellie') {
+        return { name: 'ellie', role: 'admin' };
+      } else {
+        return new Error('no access');
+      }
+    }, 2000);
+  }
+
+  async getUserWithRole(id, password) {
+    const user = await this.loginUser(id, password);
+    const role = await this.getRoles(user);
+    return role;
   }
 }
 
@@ -31,8 +33,4 @@ const userStorage = new UserStorage();
 const id = prompt('enter your id');
 const password = prompt('enter your password');
 
-userStorage
-  .loginUser(id, password)
-  .then(userStorage.getRoles)
-  .then((user) => alert(`username: ${user.name}, role: ${user.role}`))
-  .catch(console.log);
+userStorage.getUserWithRole().then(console.log);
